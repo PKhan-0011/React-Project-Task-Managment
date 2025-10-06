@@ -1,5 +1,6 @@
 
-const employees = [
+
+const employees: any = [
     {
         "id": 1,
         "firstName": "Arjun",
@@ -203,8 +204,23 @@ const employees = [
 ];
 
 
-const admin = [{
+const admin:any = [{
     "id": 1,
     "email": "admin@example.com",
     "password": "123"
 }];
+
+export const setLocalStorage = () => {
+      localStorage.setItem("employeess", JSON.stringify(employees));
+      localStorage.setItem("Admin", JSON.stringify(admin));
+}
+
+export const getLocalStorage = () => {
+        //@ts-ignore
+     const data = localStorage.getItem('employeess', employees);
+        console.log(JSON.parse(data!));
+        //@ts-ignore
+     const adminData = localStorage.getItem('admin', admin);
+      console.log(JSON.parse(adminData!));
+      
+}
