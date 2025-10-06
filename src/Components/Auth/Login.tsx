@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-const Login = () => {
+const Login = ({props}: any) => {
 
      const [email, setEmail] = useState<string>('');
      const [password, setPassword] = useState<string>('');
@@ -12,6 +12,9 @@ const Login = () => {
            setEmail("");
            setPassword("");
     }
+
+    
+    console.log(props);
 
   return (
     <div className="h-screen w-screen flex flex-col items-center justify-center">
