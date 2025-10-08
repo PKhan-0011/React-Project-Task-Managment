@@ -1,15 +1,20 @@
 
 import Login from './Components/Auth/Login';
+
 import { getLocalStorage, setLocalStorage } from './utilis/localStorage';
 import { useEffect, useState } from 'react';
 
-//import AdminDashboard from "./Components/Dashboard/AdminDashboard"
-//import EmployeeDashBoard from "./Components/Dashboard/EmployeeDashBoard"
+import AdminDashboard from "./Components/Dashboard/AdminDashboard";
+import EmployeeDashBoard from "./Components/Dashboard/EmployeeDashBoard";
 
+import {useContext} from 'react';
+import { AuthContext } from './context/AuthProvider';
 
 function App() {
-
-
+  
+  const data02 = useContext(AuthContext);
+   
+  console.log(data02);
 
   const [user, setUser] = useState<string>('');
 
@@ -20,10 +25,10 @@ function App() {
 
    function handleLogin(email:string, password:number) {
           if(email == 'admin@me.com' && password == 123){
-              console.log('This is Admin')
+              setUser('admin');
           }
           else if(email == 'user@me.com' && password == 321){
-                 console.log('This is user')
+                 setUser('employee');
           }
           else{
             alert(
@@ -36,11 +41,9 @@ function App() {
   return (
     <>
        
-       {!user ? <Login handleLogin = {handleLogin} /> : user};
-
-       {/* <EmployeeDashBoard /> */}
-       {/* <AdminDashboard/> */}
- 
+       {!user ? <Login handleLogin = {handleLogin} /> : ''};
+       {user == 'admin' ? <AdminDashboard/> :  <EmployeeDashBoard />}
+        
     </>
   )
 }
