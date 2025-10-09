@@ -15,6 +15,8 @@ function App() {
   const userData = useContext(AuthContext);
    
   console.log(userData);
+  console.log("Em", userData?.employee);
+  console.log("Ad", userData?.adminData);
 
   const [user, setUser] = useState<string>('');
 
