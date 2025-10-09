@@ -4,17 +4,17 @@ import Login from './Components/Auth/Login';
 import { getLocalStorage, setLocalStorage } from './utilis/localStorage';
 import { useEffect, useState } from 'react';
 
-import AdminDashboard from "./Components/Dashboard/AdminDashboard";
-import EmployeeDashBoard from "./Components/Dashboard/EmployeeDashBoard";
+// import AdminDashboard from "./Components/Dashboard/AdminDashboard";
+// import EmployeeDashBoard from "./Components/Dashboard/EmployeeDashBoard";
 
 import {useContext} from 'react';
 import { AuthContext } from './context/AuthProvider';
 
 function App() {
   
-  const data02 = useContext(AuthContext);
+  const userData = useContext(AuthContext);
    
-  console.log(data02);
+  console.log(userData);
 
   const [user, setUser] = useState<string>('');
 
@@ -23,16 +23,14 @@ function App() {
       getLocalStorage();
    });
 
-   function handleLogin(email:string, password:number) {
+  function handleLogin(email:string, password:number) {
           if(email == 'admin@me.com' && password == 123){
               setUser('admin');
           }
-          else if(email == 'user@me.com' && password == 321){
-                 setUser('employee');
-          }
+          
           else{
             alert(
-              "Invalid credentails!..",
+              "Invalid credentails!..", 
             )
           }
    }
@@ -42,7 +40,7 @@ function App() {
     <>
        
        {!user ? <Login handleLogin = {handleLogin} /> : ''};
-       {user == 'admin' ? <AdminDashboard/> :  <EmployeeDashBoard />}
+       
         
     </>
   )

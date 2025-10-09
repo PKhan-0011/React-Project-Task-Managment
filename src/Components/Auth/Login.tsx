@@ -1,5 +1,6 @@
 import {useState} from 'react';
 
+
 const Login = ({props}: any) => {
 
      const [email, setEmail] = useState<string>('');
@@ -9,6 +10,9 @@ const Login = ({props}: any) => {
            e.preventDefault();
            console.log("Hello bhai form submit ho gya!..");
            console.log(email, password);
+             
+           props.handleLogin(email, password);
+
            setEmail("");
            setPassword("");
     }
@@ -47,7 +51,7 @@ const Login = ({props}: any) => {
   )
 }
 
-export default Login
+export default Login;
 
 // Yha p ek do chize hai jo acche s sikhna hai like pehle data diya maine login kiya okkh!. uske baad ham jab console p dekhneg to data jata hi nahi hai
 // bcz of prevent default behaviour okkh!.. to hame e dena padega onsubmit m and e.preventDefault() hatana padega okkh!.. jisse backend m ya fir dataBase m data chla jaye okkh!...

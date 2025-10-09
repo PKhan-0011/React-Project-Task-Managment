@@ -211,16 +211,16 @@ const admin:any = [{
 }];
 
 export const setLocalStorage = () => {
-      localStorage.setItem("employeess", JSON.stringify(employees));
-      localStorage.setItem("Admin", JSON.stringify(admin));
+      localStorage.setItem("employees", JSON.stringify(employees));
+      localStorage.setItem("admin", JSON.stringify(admin));
 }
 
 export const getLocalStorage = () => {
         //@ts-ignore
-     const employee = JSON.parse(localStorage.getItem('employeess', employeess));
+     const employee = JSON.parse(localStorage.getItem(employees));
         
         //@ts-ignore
-     const adminData = JSON.parse(localStorage.getItem('Admin', admin));
+     const adminData = JSON.parse(localStorage.getItem(admin));
       
       return {employee, adminData};
       
