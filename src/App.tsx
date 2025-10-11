@@ -1,13 +1,14 @@
 
 import Login from './Components/Auth/Login';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // import AdminDashboard from "./Components/Dashboard/AdminDashboard";
 import {useContext} from 'react';
 import { AuthContext } from './context/AuthProvider';
 import AdminDashboard from './Components/Dashboard/AdminDashboard';
 import EmployeeDashBoard from "./Components/Dashboard/EmployeeDashBoard";
+import { setLocalStorage } from './utilis/localStorage';
 
 function App() {
   
@@ -19,10 +20,9 @@ function App() {
 
   const [user, setUser] = useState<string>('');
 
-  //  useEffect(() => {
-  //     setLocalStorage(); //isko hamm actaully aisi hi bahar nahi rakh sakte like khule m hi bcz ye ek render p chl jayega okkh!..
-  //     getLocalStorage();
-  //  });
+   useEffect(() => {
+      setLocalStorage(); //isko hamm actaully aisi hi bahar nahi rakh sakte like khule m hi bcz ye ek render p chl jayega okkh!..
+   }, []);
 
   function handleLogin(email:string, password:number) {
           if(email == 'admin@me.com' && password == 123){

@@ -217,10 +217,12 @@ export const setLocalStorage = () => {
 
 export const getLocalStorage = () => {
         //@ts-ignore
-     const employee = JSON.parse(localStorage.getItem(employees) || "null");
+     const employee = JSON.parse(localStorage.getItem("employees") || "null");
         
         //@ts-ignore
-     const adminData = JSON.parse(localStorage.getItem(admin) || "null");
+     const adminData = JSON.parse(localStorage.getItem("admin") || "null");
       
+       console.log({emloyee:employee, admin: adminData });
+
       return {employee, adminData};
 }

@@ -14,15 +14,13 @@ const AuthProvider = ({children}: {children: React.ReactNode}) => {
     // const data = getLocalStorage();
     // console.log(data); // yha s 2 chize aa rhai hai like admin and data wo ayega jo hamne wha s return kiya tha okkh!...
       
-
-    
   useEffect(() => {
         const data = getLocalStorage();
            setUserData(data);
-           console.log(userData);
+           console.log('useEffect k andar hu for checkin', data);
   } , []);
 
-    
+    console.log('ye AuthProvider wala checking hahi', userData);
 
   return (
     <div>
