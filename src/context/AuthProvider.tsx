@@ -20,7 +20,7 @@ const AuthProvider = ({children}: {children: React.ReactNode}) => {
            console.log('useEffect k andar hu for checkin', data);
   } , []);
 
-    console.log('ye AuthProvider wala checking hahi', userData);
+    console.log('ye AuthProvider wala checking hah', userData);
 
   return (
     <div>

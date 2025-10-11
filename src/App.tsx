@@ -22,16 +22,26 @@ function App() {
 
    useEffect(() => {
       setLocalStorage(); //isko hamm actaully aisi hi bahar nahi rakh sakte like khule m hi bcz ye ek render p chl jayega okkh!..
-   }, []);
+      if(userData){
+         const loggedInUser = localStorage.getItem('loggedInUser');
+           console.log(loggedInUser);
+          //  setUser(loggedInUser?.role)
+      }
+
+   }, []);  
 
   function handleLogin(email:string, password:number) {
           if(email == 'admin@me.com' && password == 123){
               setUser('admin');
               console.log(user);
+              localStorage.setItem("loggedInUser", JSON.stringify({'role': 'admin'}));
           }
-          else if (email === 'user@me.com' && password == 321){
+          else if (userData && userData?.employee.find((e:any) => 
+              email == e.email && password == e.password
+          )){
               setUser('employee');
               console.log(user);
+              localStorage.setItem("loggedInUser", JSON.stringify({'role':'employee'}));
           }
           else{
             alert(
@@ -43,9 +53,7 @@ function App() {
 
   return (
     <>
-       
        {!user ? (<Login handleLogin={handleLogin} />) : user == 'admin' ? <AdminDashboard/> : <EmployeeDashBoard/>};
-
     </>
   )
 }
