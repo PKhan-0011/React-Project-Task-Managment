@@ -25,7 +25,7 @@ function App() {
       if(userData){
          const loggedInUser = localStorage.getItem('loggedInUser');
            console.log(loggedInUser);
-          //  setUser(loggedInUser?.role)
+          //  setUser(loggedInUser?.role);
       }
 
    }, []);  
