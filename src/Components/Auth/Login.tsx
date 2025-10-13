@@ -17,7 +17,6 @@ const Login = (props: any) => {
            setPassword("");
     }
 
-    
     console.log(props);
 
   return (
